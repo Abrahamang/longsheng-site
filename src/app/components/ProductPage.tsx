@@ -35,7 +35,8 @@ const products = [
   },
 ];
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
+export default function ProductPage() {
+
   const pathname = usePathname();
   const product = products.find((p) => p.slug === pathname?.split('/').pop());
 
