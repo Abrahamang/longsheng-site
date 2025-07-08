@@ -35,10 +35,9 @@ const products = [
   },
 ];
 
-export default function ProductPage() {
-
-  const pathname = usePathname();
-  const product = products.find((p) => p.slug === pathname?.split('/').pop());
+export default function ProductPage({ params }: { params: { slug: string } }) {
+    const product = products.find((p) => p.slug === params.slug);
+    const product = products.find((p) => p.slug === pathname?.split('/').pop());
 
   if (!product) {
     return <div className="p-10 text-red-500">Product not found.</div>;
