@@ -35,9 +35,10 @@ const products = [
   },
 ];
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-    const product = products.find((p) => p.slug === params.slug);
-    const product = products.find((p) => p.slug === pathname?.split('/').pop());
+export default function ProductPage() {
+  const pathname = usePathname();
+  const slug = pathname?.split('/').pop();
+  const product = products.find((p) => p.slug === slug);
 
   if (!product) {
     return <div className="p-10 text-red-500">Product not found.</div>;
@@ -46,10 +47,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   return (
     <main className="bg-[#fdf6e3] text-gray-800 px-6 py-12 min-h-screen">
       <section className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-start">
-        {/* Left: Product Image */}
+        {/* 左侧图片 */}
         <div className="w-full md:w-1/2">
-          <div className="w-full h-64 bg-gray-200 rounded shadow flex items-center justify-center text-gray-500 text-sm">
-            {/* 如果你已有图像文件，可替换 img 标签 */}
+          <div className="relative w-full h-64 bg-gray-200 rounded shadow flex items-center justify-center text-gray-500 text-sm">
             <img
               src={`/products/${product.slug}.jpg`}
               alt={product.title}
@@ -63,7 +63,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* Right: Product Info */}
+        {/* 右侧详情 */}
         <div className="w-full md:w-1/2">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{product.title}</h1>
           <p className="text-lg text-gray-700 mb-6">{product.desc}</p>
@@ -76,7 +76,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           </ul>
 
           <div className="flex gap-4 mb-6">
-            
             <a
               href="https://wa.me/31627135102"
               className="bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-4 rounded"
@@ -87,16 +86,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
           <div className="text-sm flex justify-between">
             <Link href="/" className="underline">← Back to Home</Link>
-            <Link
-              href={
-                pathname.includes('/zh')
-                  ? pathname.replace('/zh', '/en')
-                  : pathname.replace('/en', '/zh')
-              }
-              className="underline"
-            >
-            
-            </Link>
           </div>
         </div>
       </section>
