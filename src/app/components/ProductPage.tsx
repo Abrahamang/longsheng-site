@@ -52,23 +52,16 @@ export default function ProductPage() {
   return (
     <main className="bg-[#fdf6e3] text-gray-800 px-6 py-12 min-h-screen">
       <section className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-start">
-        {/* 图片部分 */}
+        
+        {/* ✅ 图片改为背景图 */}
         <div className="w-full md:w-1/2">
-          <div className="relative w-full h-64 bg-gray-200 rounded shadow flex items-center justify-center text-gray-500 text-sm">
-            <img
-              src={`/${product.slug}.png`} 
-              alt={product.title}
-              className="w-full h-64 object-cover rounded shadow mb-6"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
-            />
-            <span className="absolute">Image Preview</span>
-          </div>
+          <div
+            className="w-full h-64 bg-cover bg-center rounded shadow mb-6"
+            style={{ backgroundImage: `url(${product.image})` }}
+          />
         </div>
 
-        {/* 产品文字部分 */}
+        {/* 产品信息文字部分 */}
         <div className="w-full md:w-1/2">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{product.title}</h1>
           <p className="text-lg text-gray-700 mb-6">{product.desc}</p>
