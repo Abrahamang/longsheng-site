@@ -137,61 +137,54 @@ export default function Home() {
     <p className="text-gray-700 mb-6">We reply within 12 hours. Samples available on request.</p>
 
     <form
-      className="bg-white rounded shadow p-6 space-y-4 text-left"
-      onSubmit={(e) => {
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.target));
-        console.log('Form submitted:', data);
-        alert('Your message has been sent!');
-        e.target.reset();
-      }}
-    >
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Name</label>
-        <input
-          type="text"
-          name="name"
-          required
-          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        />
-      </div>
+  className="bg-white rounded shadow p-6 space-y-4 text-left"
+  onSubmit={(e) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const data = Object.fromEntries(new FormData(form));
+    console.log('Form submitted:', data);
+    alert('Your message has been sent!');
+    form.reset();
+  }}
+>
+  <label className="block">
+    <span className="text-gray-700">Name</span>
+    <input
+      type="text"
+      name="name"
+      required
+      className="mt-1 block w-full border border-gray-300 rounded p-2"
+    />
+  </label>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Email</label>
-        <input
-          type="email"
-          name="email"
-          required
-          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        />
-      </div>
+  <label className="block">
+    <span className="text-gray-700">Email</span>
+    <input
+      type="email"
+      name="email"
+      required
+      className="mt-1 block w-full border border-gray-300 rounded p-2"
+    />
+  </label>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Product Need</label>
-        <input
-          type="text"
-          name="product"
-          placeholder="e.g. 30s viscose yarn, 2 tons"
-          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        />
-      </div>
+  <label className="block">
+    <span className="text-gray-700">Message</span>
+    <textarea
+      name="message"
+      rows={4}
+      required
+      className="mt-1 block w-full border border-gray-300 rounded p-2"
+    />
+  </label>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Message</label>
-        <textarea
-          name="message"
-          rows={4}
-          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        />
-      </div>
+  <button
+    type="submit"
+    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded"
+  >
+    Send Message
+  </button>
+</form>
 
-      <button
-        type="submit"
-        className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded"
-      >
-        Submit Inquiry
-      </button>
-    </form>
 
     <div className="mt-6">
       <a
