@@ -56,7 +56,7 @@ export default function ProductPage() {
         <div className="w-full md:w-1/2">
           <div className="relative w-full h-64 bg-gray-200 rounded shadow flex items-center justify-center text-gray-500 text-sm">
             <img
-              src={product.image}
+              src={`/${product.slug}.png`} 
               alt={product.title}
               className="w-full h-64 object-cover rounded shadow mb-6"
               onError={(e) => {
