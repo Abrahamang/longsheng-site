@@ -87,6 +87,7 @@ export default function Home() {
                 alt={item.title}
                 width={300}
                 height={0} // 不设置高度
+                unoptimized
                 className="w-full max-h-[300px] object-contain mx-auto rounded mb-4"
               />
               <h3 className="font-bold text-lg text-gray-800">{item.title}</h3>

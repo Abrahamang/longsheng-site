@@ -63,6 +63,7 @@ export default function ProductPage() {
               alt={product.title}
               width={400}
               height={600}
+              unoptimized
               className="object-contain w-full h-auto rounded shadow mb-6"
             />
           </div>
