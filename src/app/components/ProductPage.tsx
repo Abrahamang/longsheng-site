@@ -1,7 +1,6 @@
 'use client';
-
 import Link from 'next/link';
-import Image from 'next/image'; // ✅ 用 next/image 替代 <img>
+import { usePathname } from 'next/navigation';
 
 const products = [
   {
@@ -36,15 +35,10 @@ const products = [
   },
 ];
 
-// ✅ 添加类型定义，接收 params
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
-export default function ProductPage({ params }: Props) {
-  const product = products.find((p) => p.slug === params.slug);
+export default function ProductPage() {
+  const pathname = usePathname();
+  const slug = pathname?.split('/').pop();
+  const product = products.find((p) => p.slug === slug);
 
   if (!product) {
     return <div className="p-10 text-red-500">Product not found.</div>;
@@ -53,14 +47,12 @@ export default function ProductPage({ params }: Props) {
   return (
     <main className="bg-[#fdf6e3] text-gray-800 px-6 py-12 min-h-screen">
       <section className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-start">
-        {/* 左侧图片 */}
+        {/* 图片部分 */}
         <div className="w-full md:w-1/2">
           <div className="relative w-full h-64 bg-gray-200 rounded shadow flex items-center justify-center text-gray-500 text-sm">
-            <Image
+            <img
               src={`/products/${product.slug}.jpg`}
               alt={product.title}
-              width={600}
-              height={400}
               className="w-full h-64 object-cover rounded shadow"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
@@ -71,7 +63,7 @@ export default function ProductPage({ params }: Props) {
           </div>
         </div>
 
-        {/* 右侧详情 */}
+        {/* 产品文字部分 */}
         <div className="w-full md:w-1/2">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{product.title}</h1>
           <p className="text-lg text-gray-700 mb-6">{product.desc}</p>
