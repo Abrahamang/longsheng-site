@@ -58,14 +58,14 @@ export default function ProductPage() {
         {/* ✅ 图片展示区域 */}
         <div className="w-full md:w-1/2">
           <div className="w-full max-w-sm mx-auto">
-            <Image
-              src={product.image}
-              alt={product.title}
-              width={400}
-              height={600}
-              unoptimized
-              className="object-contain w-full h-auto rounded shadow mb-6"
-            />
+          <Image
+            src={product.image}
+            alt={product.title}
+            width={400}
+            height={300}
+            unoptimized
+            className="object-contain w-full h-auto rounded"
+          />
           </div>
         </div>
 
