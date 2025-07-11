@@ -10,26 +10,31 @@ export default function Home() {
       slug: 'viscose-yarn',
       title: 'Viscose Yarn 21s–60s',
       desc: 'Standard yarn for weaving and knitting. Used in linings, shirts, bedsheets.',
+      image: '/VISCOSE yarn.PNG',
     },
     {
       slug: 'siro-spun-yarn',
       title: 'Siro Spun Yarn 30s–60s',
       desc: 'High strength and smoothness. Ideal for high-end fabric applications.',
+      image: '/Siri Spun Yarn.PNG',
     },
     {
       slug: 'slub-yarn',
       title: 'Slub Yarn 21s–60s',
       desc: 'Irregular texture yarn for fashion fabrics with character.',
+      image: '/Slub yarn.PNG',
     },
     {
       slug: 'high-twist-yarn',
       title: 'High Twist Yarn 21s–60s',
       desc: 'Strong twist structure for silk-like or sheer applications.',
+      image: '/High twist yarn.PNG',
     },
     {
       slug: 'blended-yarn',
       title: 'Blended Yarn 32s/2',
       desc: 'Viscose + Polyester blend. Better strength, cheaper cost.',
+      image: '/Blended yarn.PNG',
     },
   ];
 
@@ -97,7 +102,11 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {displayed.map((item, i) => (
             <div key={i} className="bg-white shadow rounded p-4 text-center">
-              <div className="w-full h-32 bg-gray-200 mb-4 rounded" />
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-32 object-cover rounded mb-4"
+              />
               <h3 className="font-bold text-lg text-gray-800">{item.title}</h3>
               <p className="text-gray-600 text-sm mb-2">{item.desc}</p>
               <Link
