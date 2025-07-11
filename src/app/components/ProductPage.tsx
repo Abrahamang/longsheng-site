@@ -1,4 +1,6 @@
 'use client';
+
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -8,35 +10,35 @@ const products = [
     title: 'Viscose Yarn 21s–60s',
     desc: 'Standard yarn for weaving and knitting. Used in linings, shirts, bedsheets.',
     features: ['21s–60s', 'Soft, breathable', '100% viscose', 'Common textile use'],
-    image: '/viscose-yarn.png'
+    image: '/viscose-yarn.jpg'
   },
   {
     slug: 'siro-spun-yarn',
     title: 'Siro Spun Yarn 30s–60s',
     desc: 'High strength and smoothness. Ideal for high-end fabric applications.',
     features: ['Compact structure', 'Better pilling resistance', 'Used in suits, dresses'],
-    image: '/siro-spun-yarn.png',
+    image: '/siro-spun-yarn.jpg',
   },
   {
     slug: 'slub-yarn',
     title: 'Slub Yarn 21s–60s',
     desc: 'Irregular texture yarn for fashion fabrics with character.',
     features: ['Uneven texture', 'Popular for trend fabrics', 'Used in fashionwear'],
-    image: '/slub-yarn.png',
+    image: '/slub-yarn.jpg',
   },
   {
     slug: 'high-twist-yarn',
     title: 'High Twist Yarn 21s–60s',
     desc: 'Strong twist structure for silk-like or sheer applications.',
     features: ['High twist', 'Smooth, glossy finish', 'Ideal for scarves, blouses'],
-    image: '/high-twist-yarn.png',
+    image: '/high-twist-yarn.jpg',
   },
   {
     slug: 'blended-yarn',
     title: 'Blended Yarn 32s/2',
     desc: 'Viscose + Polyester blend. Better strength, cheaper cost.',
     features: ['32s/2 double yarn', 'Better dyeing stability', 'Used in home textiles'],
-    image: '/blended-yarn.png',
+    image: '/blended-yarn.jpg',
   },
 ];
 
@@ -53,15 +55,20 @@ export default function ProductPage() {
     <main className="bg-[#fdf6e3] text-gray-800 px-6 py-12 min-h-screen">
       <section className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-start">
         
-        {/* ✅ 图片改为背景图 */}
+        {/* ✅ 图片展示区域 */}
         <div className="w-full md:w-1/2">
-          <div
-            className="w-full h-64 bg-cover bg-center rounded shadow mb-6"
-            style={{ backgroundImage: `url(${product.image})` }}
-          />
+          <div className="w-full max-w-sm mx-auto">
+            <Image
+              src={product.image}
+              alt={product.title}
+              width={400}
+              height={600}
+              className="object-contain w-full h-auto rounded shadow mb-6"
+            />
+          </div>
         </div>
 
-        {/* 产品信息文字部分 */}
+        {/* ✅ 产品文字说明区域 */}
         <div className="w-full md:w-1/2">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{product.title}</h1>
           <p className="text-lg text-gray-700 mb-6">{product.desc}</p>
@@ -82,7 +89,7 @@ export default function ProductPage() {
             </a>
           </div>
 
-          <div className="text-sm flex justify-between">
+          <div className="text-sm">
             <Link href="/" className="underline">← Back to Home</Link>
           </div>
         </div>
