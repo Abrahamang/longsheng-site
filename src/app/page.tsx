@@ -10,31 +10,31 @@ export default function Home() {
       slug: 'viscose-yarn',
       title: 'Viscose Yarn 21s–60s',
       desc: 'Standard yarn for weaving and knitting. Used in linings, shirts, bedsheets.',
-      image: '/VISCOSE yarn.PNG',
+      image: '/viscose-yarn.png'
     },
     {
       slug: 'siro-spun-yarn',
       title: 'Siro Spun Yarn 30s–60s',
       desc: 'High strength and smoothness. Ideal for high-end fabric applications.',
-      image: '/Siri Spun Yarn.PNG',
+      image: '/siro-spun-yarn.png'
     },
     {
       slug: 'slub-yarn',
       title: 'Slub Yarn 21s–60s',
       desc: 'Irregular texture yarn for fashion fabrics with character.',
-      image: '/Slub yarn.PNG',
+      image: '/slub-yarn.png'
     },
     {
       slug: 'high-twist-yarn',
       title: 'High Twist Yarn 21s–60s',
       desc: 'Strong twist structure for silk-like or sheer applications.',
-      image: '/High twist yarn.PNG',
+      image: '/high-twist-yarn.png'
     },
     {
       slug: 'blended-yarn',
       title: 'Blended Yarn 32s/2',
       desc: 'Viscose + Polyester blend. Better strength, cheaper cost.',
-      image: '/Blended yarn.PNG',
+      image: '/blended-yarn.png'
     },
   ];
 
